@@ -321,11 +321,11 @@ h6 {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.leaf img {
+  animation: floatAnimation 3s infinite alternate,
+    zoomAnimation 5s infinite alternate; /* Adjust animation durations and timing functions as needed */
+}
 @media (min-width: 768px) {
-  .leaf img {
-    animation: floatAnimation 3s infinite alternate,
-      zoomAnimation 5s infinite alternate; /* Adjust animation durations and timing functions as needed */
-  }
 }
 .leaf {
   cursor: pointer;
