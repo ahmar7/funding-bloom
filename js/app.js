@@ -64,16 +64,25 @@ $(document).ready(function () {
     lastScrollTop = st <= 0 ? 0 : st;
   });
 });
-VanillaTilt.init(document.querySelectorAll(".leaf"), {
-  glare: true, // Add glare effect
-  "max-glare": 0.5, // Adjust glare intensity between 0 and 1
-});
-VanillaTilt.init(document.querySelectorAll(".my-img"), {
-  max: 10, // Max tilt rotation angle
-  speed: 400, // Tilt speed
-  glare: true, // Add glare effect
-  "max-glare": 0.5, // Glare intensity (between 0 and 1)
-});
+// Check if the device has mouse input capability
+function isMouseDevice() {
+  return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+}
+
+// Initialize VanillaTilt only if it's a mouse device
+if (isMouseDevice()) {
+  VanillaTilt.init(document.querySelectorAll(".leaf"), {
+    glare: true, // Add glare effect
+    "max-glare": 0.5, // Adjust glare intensity between 0 and 1
+  });
+  VanillaTilt.init(document.querySelectorAll(".my-img"), {
+    max: 10, // Max tilt rotation angle
+    speed: 400, // Tilt speed
+    glare: true, // Add glare effect
+    "max-glare": 0.5, // Glare intensity (between 0 and 1)
+  });
+}
+
 
 let Scrollbar = window.Scrollbar;
 const options = {
