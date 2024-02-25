@@ -83,7 +83,6 @@ if (isMouseDevice()) {
   });
 }
 
-
 let Scrollbar = window.Scrollbar;
 const options = {
   damping: 0.015,
@@ -95,3 +94,32 @@ $(document).ready(function () {
     $(".header-ul").toggleClass("active-ul");
   });
 });
+// function toggleAnswer(id) {
+//   var answer = document.getElementById("answer" + id);
+//   var question = document.querySelector(".question:nth-child(" + id + ")");
+
+//   if (answer.classList.contains("active")) {
+//     answer.style.maxHeight = null;
+//     answer.classList.remove("active");
+//     question.classList.remove("active");
+//   } else {
+//     answer.style.maxHeight = answer.scrollHeight + "px";
+//     answer.classList.add("active");
+//     question.classList.add("active");
+//   }
+// }
+
+function toggleAnswer(question) {
+  var answer = question.nextElementSibling;
+  var icon = question.querySelector("img");
+
+  if (answer.classList.contains("active")) {
+    answer.style.maxHeight = null;
+    answer.classList.remove("active");
+    icon.style.transform = "rotate(0deg)";
+  } else {
+    answer.style.maxHeight = answer.scrollHeight + "px";
+    answer.classList.add("active");
+    icon.style.transform = "rotate(45deg)";
+  }
+}

@@ -117,7 +117,7 @@ h6 {
   padding-block: 80px;
 }
 .section-title {
-  font-size: 60px;
+  font-size: 47px;
   text-align: center;
 }
 .service-cards {
@@ -137,12 +137,12 @@ h6 {
 }
 .conte h1 {
   text-align: center;
-  font-size: 19px;
+  font-size: 20px;
   font-weight: bold;
 }
 .conte p {
   text-align: center;
-  font-size: 17px;
+  font-size: 18px;
   color: #76766b;
   margin-top: 7px !important;
   max-width: 250px;
@@ -208,7 +208,9 @@ h6 {
   align-items: center;
   justify-content: space-between;
 }
-
+.flex-head p {
+  font-size: 18px;
+}
 .flex-head img {
   width: auto !important;
 }
@@ -283,6 +285,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 
 .answer p {
@@ -300,6 +303,7 @@ h6 {
 .footer {
   align-items: start !important;
 }
+
 .footer h1 {
   font-size: 60px;
   text-align: left;
@@ -471,4 +475,26 @@ h6 {
   .single-service {
     width: 100% !important;
   }
+}
+.answer {
+  max-height: 0;
+  display: block !important;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.answer.active {
+  max-height: 500px; /* Set a max-height for smooth transition */
+}
+
+.question {
+  cursor: pointer;
+}
+
+.question img {
+  transition: transform 0.3s ease-out;
+}
+
+.question.active img {
+  transform: rotate(45deg); /* Rotate the plus icon when active */
 }
