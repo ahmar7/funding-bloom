@@ -1,23 +1,56 @@
+// $(document).ready(function () {
+//   // Smooth scrolling when clicking on navigation links
+//   $('.header-ul li a[href^="#"]').on("click", function (event) {
+//     event.preventDefault();
+//     console.log("Click event handler triggered.");
+
+//     // Remove nav-active class from all navigation links
+//     $(".header-ul li a").removeClass("nav-active");
+
+//     // Add nav-active class to the clicked navigation link
+//     $(this).addClass("nav-active");
+
+//     const target = $(this.getAttribute("href"));
+//     if (target.length) {
+//       $("html, body").stop().animate(
+//         {
+//           scrollTop: target.offset().top,
+//         },
+//         1500
+//       );
+//     }
+//   });
+// });
 $(document).ready(function () {
   // Smooth scrolling when clicking on navigation links
   $('.header-ul li a[href^="#"]').on("click", function (event) {
     event.preventDefault();
-    console.log("Click event handler triggered.");
-
-    // Remove nav-active class from all navigation links
-    $(".header-ul li a").removeClass("nav-active");
-
-    // Add nav-active class to the clicked navigation link
-    $(this).addClass("nav-active");
-
-    const target = $(this.getAttribute("href"));
+    const target = $($(this).attr("href"));
     if (target.length) {
-      $("html, body").stop().animate(
-        {
-          scrollTop: target.offset().top,
-        },
-        1500
-      );
+      const headerHeight = $(".header").outerHeight();
+      const targetOffset = target.offset().top - headerHeight;
+
+      // Calculate the translation based on the target section
+      let translation = 0;
+      switch ($(this).attr("href")) {
+        case "#about":
+          translation = -677;
+          break;
+        case "#service":
+          translation = -1346;
+          break;
+        case "#pricing":
+          translation = -2780;
+          break;
+        default:
+          translation = 0;
+      }
+
+      // Disable parallax scrolling temporarily
+      $(".scroll-content").css({
+        transition: "all 0.3s ease-in-out",
+        transform: `translate3d(0px, ${translation}px, 0px)`,
+      });
     }
   });
 });
@@ -29,26 +62,26 @@ VanillaTilt.init(document.querySelector(".my-img"), {
 });
 $(document).ready(function () {
   // Smooth scrolling when clicking on navigation links
-  $('.header-ul li a[href^="#"]').on("click", function (event) {
-    event.preventDefault();
-    console.log("Click event handler triggered.");
+  // $('.header-ul li a[href^="#"]').on("click", function (event) {
+  //   event.preventDefault();
+  //   console.log("Click event handler triggered.");
 
-    // Remove nav-active class from all navigation links
-    $(".header-ul li a").removeClass("nav-active");
+  //   // Remove nav-active class from all navigation links
+  //   $(".header-ul li a").removeClass("nav-active");
 
-    // Add nav-active class to the clicked navigation link
-    $(this).addClass("nav-active");
+  //   // Add nav-active class to the clicked navigation link
+  //   $(this).addClass("nav-active");
 
-    const target = $(this.getAttribute("href"));
-    if (target.length) {
-      $("html, body").stop().animate(
-        {
-          scrollTop: target.offset().top,
-        },
-        1500
-      );
-    }
-  });
+  //   const target = $(this.getAttribute("href"));
+  //   if (target.length) {
+  //     $("html, body").stop().animate(
+  //       {
+  //         scrollTop: target.offset().top,
+  //       },
+  //       1500
+  //     );
+  //   }
+  // });
 
   // Parallax effect for banner image
   let lastScrollTop = 0;

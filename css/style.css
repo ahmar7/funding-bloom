@@ -476,6 +476,11 @@ h6 {
     width: 100% !important;
   }
 }
+.aj {
+  display: block;
+  width: max-content;
+  text-decoration: none;
+}
 .answer {
   max-height: 0;
   display: block !important;
